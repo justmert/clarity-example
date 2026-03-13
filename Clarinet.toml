@@ -1,0 +1,26 @@
+[project]
+name = "clarifi-lending"
+description = "ClariFi Decentralized Lending Protocol"
+authors = ["ClariFi Labs"]
+
+[contracts.clarifi-token]
+path = "contracts/clarifi-token.clar"
+
+[contracts.price-oracle]
+path = "contracts/price-oracle.clar"
+
+[contracts.lending-pool]
+path = "contracts/lending-pool.clar"
+depends_on = ["price-oracle"]
+
+[contracts.staking-rewards]
+path = "contracts/staking-rewards.clar"
+depends_on = ["clarifi-token"]
+
+[contracts.protocol-config]
+path = "contracts/protocol-config.clar"
+depends_on = ["clarifi-token", "lending-pool"]
+
+[repl]
+costs_version = 2
+parser_version = 2
